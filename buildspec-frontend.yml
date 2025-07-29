@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "Building frontend"
+  post_build:
+    commands:
+      - aws s3 sync frontend/ s3://your-frontend-bucket/ --delete
+artifacts:
+  files:
+    - '**/*'
