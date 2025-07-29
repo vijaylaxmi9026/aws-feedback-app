@@ -1,11 +1,18 @@
 version: 0.2
+
 phases:
   build:
     commands:
       - echo "Building frontend"
+      # Add actual build command if needed, e.g.:
+      # - npm install
+      # - npm run build
+
   post_build:
     commands:
-      - aws s3 sync frontend/ s3://your-frontend-bucket/ --delete
+      - echo "Deploying frontend to S3 bucket"
+      - aws s3 sync frontend/ s3://aws-cicd-2907/ --delete
+
 artifacts:
   files:
     - '**/*'
