@@ -18,7 +18,7 @@
       const name = document.getElementById("name").value;
       const message = document.getElementById("message").value;
 
-      await fetch("https://<API-ID>.execute-api.<REGION>.amazonaws.com/prod/feedback", {
+      await fetch("https://g3hvlfafej.execute-api.us-east-1.amazonaws.com/prod/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, message }),
