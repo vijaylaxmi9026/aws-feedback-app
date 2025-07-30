@@ -5,10 +5,11 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - pip install -r backend/requirements.txt -t .
+      - pip install -r backend/requirements.txt -t backend/
   build:
     commands:
-      - zip -r function.zip .
+      - cd backend
+      - zip -r ../function.zip .
   post_build:
     commands:
       - aws lambda update-function-code --function-name CICD --zip-file fileb://function.zip
